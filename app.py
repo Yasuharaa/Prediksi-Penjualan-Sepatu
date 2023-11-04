@@ -2,7 +2,7 @@ import pickle
 import streamlit as st
 
 
-model = pickle.load(open('model.sav'))
+model = pickle.load(open('model.sav', 'rb'))
 
 st.tittle('Prediksi Penjualan Sepatu berdasarkan Minat Pembeli')
 
