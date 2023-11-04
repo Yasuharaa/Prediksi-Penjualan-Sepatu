@@ -10,8 +10,8 @@ model = pickle.load(open('model.sav', 'rb'))
 
 st.title('Prediksi Penjualan Sepatu berdasarkan Minat Pembeli')
 
-minat = st.number_input('Minat')
-
+input = st.number_input('Minat')
+minat = np.array([[input]])
 prediksi = ''
 
 if st.button('Prediksi Penjualan'):
