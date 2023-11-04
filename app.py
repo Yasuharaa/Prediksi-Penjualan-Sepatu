@@ -8,7 +8,7 @@ from sklearn import metrics
 
 model = pickle.load(open('model.sav', 'rb'))
 
-st.tittle('Prediksi Penjualan Sepatu berdasarkan Minat Pembeli')
+st.title('Prediksi Penjualan Sepatu berdasarkan Minat Pembeli')
 
 minat = st.number_input('Minat')
 
