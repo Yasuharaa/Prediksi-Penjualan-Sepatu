@@ -6,17 +6,6 @@ from sklearn import linear_model
 from sklearn.model_selection import train_test_split
 from sklearn import metrics
 
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: #ffffff; /* White background color */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 model = pickle.load(open('model.sav', 'rb'))
 
 st.title('Prediksi Penjualan Sepatu berdasarkan Minat Pembeli')
