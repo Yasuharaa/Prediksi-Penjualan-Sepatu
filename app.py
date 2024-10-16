@@ -8,7 +8,7 @@ from sklearn import metrics
 
 model = pickle.load(open('model.sav', 'rb'))
 
-st.title('Prediksi Penjualan Sepatu berdasarkan Minat Pembeli')
+st.title('Prediksi Penjualan Sepatu berdasarkan Minat Pembeli di Toko Sepatu Bambang')
 
 input = st.number_input('Minat')
 minat = np.array([[input]])
@@ -18,4 +18,4 @@ if st.button('Prediksi Penjualan'):
     st.write('Jika minat pembeli terhadap suatu merek Sepatu : ', input)
     prediksi = model.predict(minat)
     st.write('Predikasi Penjualan Sepatu adalah : ')
-    st.success(prediksi)
+    st.success(int(prediksi))
