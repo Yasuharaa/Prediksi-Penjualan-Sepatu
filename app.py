@@ -27,6 +27,6 @@ if st.button('Prediksi Penjualan'):
         prediksi = model.predict(minat)
         prediksi_int = int(prediksi[0])
         st.write('Prediksi Penjualan Sepatu adalah : ')
-        st.success(prediksi_int)
+        st.success(prediksi_int + ukuran)
     except Exception as e:
         st.error(f"An error occurred during prediction: {str(e)}")
