@@ -1,21 +1,29 @@
 import pickle
 import streamlit as st
-import pandas as pd
 import numpy as np
-from sklearn import linear_model
-from sklearn.model_selection import train_test_split
-from sklearn import metrics
 
-model = pickle.load(open('model.sav', 'rb'))
+# Load model.sav
+try:
+    model = pickle.load(open('model.sav', 'rb'))
+except FileNotFoundError:
+    st.error("Model tidak ditemukan")
+    st.stop()
 
-st.title('Prediksi Penjualan Sepatu berdasarkan Minat Pembeli di Toko Sepatu Bambang')
+st.title('Prediksi Penjualan Sepatu berdasarkan Minat Pembeli')
 
-input = st.number_input('Minat')
-minat = np.array([[input]])
+# Input minat
+input_minat = st.number_input('Minat Pembeli', value=0, step=1)
+minat = np.array([[input_minat]])
 
-
+# Button Prediksi
 if st.button('Prediksi Penjualan'):
-    st.write('Jika minat pembeli terhadap suatu merek Sepatu : ', input)
-    prediksi = model.predict(minat)
-    st.write('Predikasi Penjualan Sepatu adalah : ')
-    st.success(int(prediksi))
+    st.write('Jika minat pembeli terhadap suatu merek Sepatu : ', input_minat)
+
+    # Buat prediksi dari inputan minat berdasarkan model
+    try:
+        prediksi = model.predict(minat)
+        prediksi_int = int(prediksi[0])
+        st.write('Prediksi Penjualan Sepatu adalah : ')
+        st.success(prediksi_int)
+    except Exception as e:
+        st.error(f"An error occurred during prediction: {str(e)}")
