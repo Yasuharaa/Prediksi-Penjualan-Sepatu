@@ -9,7 +9,7 @@ except FileNotFoundError:
     st.error("Model tidak ditemukan")
     st.stop()
 
-st.title('Prediksi Penjualan Sepatu berdasarkan Minat Pembeli')
+st.title('Prediksi Penjualan Sepatu berdasarkan Minat Pembeli di Toko Bambang')
 
 # Input minat
 input_minat = st.number_input('Minat Pembeli', value=0, step=1)
